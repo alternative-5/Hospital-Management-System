@@ -1,0 +1,87 @@
+{% extends 'doc_base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+  <div class="column" style="background-color:#fff;">
+  <div class="form-container">
+
+   <form method="post">
+
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}
+    <div class="form-group">
+
+    <label>Username : </label><br>
+    <input type="text" name="username" value="{{ doctor.User }}"><br>
+     </div>
+    <div class="form-group">
+     <label>Firstname : </label><br>
+    <input type="text" name="firstname" value="{{ doctor.firstname }}"><br>
+    </div>
+     <div class="form-group">
+     <label>Lastname : </label><br>
+    <input type="text" name="lastname" value="{{ doctor.lastname }}"><br>
+     </div>
+     <div class="form-group">
+     <label>Email : </label><br>
+    <input type="text" name="email" value="{{ doctor.email }}"><br>
+     </div>
+      <div class="form-group">
+    <button type="submit" class="btn btn-secondary" style="background-color:#0f61ef;color:white;">Update</button>
+
+
+
+   {% endif %}
+
+
+          {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+      </div>
+   </form>
+  </div>
+  </div>
+  <div class="column" style="background-color:#0f61ef;">
+
+  <div class="form-container">
+
+   <form method="post">
+
+
+    <div class="form-group">
+
+    <label style="color:white;">Password : </label><br>
+    <input type="password" name="username" value="{{ doctor.password }}"><br>
+     </div>
+    <div class="form-group">
+     <label style="color:white;">Confirm Password : </label><br>
+    <input type="password" name="firstname"><br>
+    </div>
+        <div class="form-group">
+    <button type="submit" class="btn btn-secondary" style="background-color:white;color:black;">Update</button>
+
+
+          {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+      </div>
+   </form>
+  </div>
+
+  </div>
+</div>
+<script>
+
+</script>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<main>
+    <div class="login-dark form-inline py-0 mx-4 my-4 pl-4 pr-4">
+    <form method="post" enctype="multipart/form-data" id="registrationForm" onsubmit="return validatePasswords()">
+        {% csrf_token %}
+        <h3 class="text-center">Registration</h3>
+       <hr>
+        <label>Username</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="username" placeholder="Username"></div>
+        <hr>
+        <label>First Name</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="firstname" placeholder="First Name"></div>
+        <hr>
+        <label>Last Name</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="lastname" placeholder="Last Name"></div>
+        <hr>
+        <label>Contact</label>
+       <div class="form-group"><input class="form-control mb-2" type="number" name="contact" placeholder="Contact"></div>
+       <hr>
+        <label>Email</label>
+       <div class="form-group"><input class="form-control mb-2" type="email" name="email" placeholder="Email"></div>
+       <hr>
+        <label>Department</label>
+       <div class="form-group">
+           <select name="department">
+                <option value="Emergency">Emergency</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="ENT">ENT</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Radiology">Radiology</option>
+                <option value="General Surgery">General Surgery</option>
+           </select>
+       </div>
+        <hr>
+        <label>Joining Date</label>
+       <div class="form-group"><input class="form-control mb-2" type="date" name="jod" placeholder="Joining Date"></div>
+       <hr>
+        <label>Upload Profile</label>
+       <div class="form-group"><input class="form-control mb-2" type="file" name="profile" placeholder="Upload Profile"></div>
+        <hr>
+        <label>Password</label>
+       <div class="form-group"><input class="form-control mb-2" type="password" id="password2" name="password" placeholder="Password"></div>
+       <hr class="li">
+        <label>Confirm Password</label>
+       <div class="form-group"><input class="form-control mb-2" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"></div>
+        <span id="errorMessage" class="error"></span>
+
+       <div class="form-group"><button class="btn btn-primary btn-block mt-2 ml-2" type="submit">Register</button></div>
+        <a href="{% url 'doc_login' %}">If You're already register then login here</a>
+     </form>
+    </div>
+    <script>
+        function validatePasswords() {
+            const password2 = document.getElementById('password2').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (password2 !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+                return false;
+            } else {
+                errorMessage.textContent = "";
+                return true;
+            }
+        }
+    </script>
+
+</main>
+{% endblock %}

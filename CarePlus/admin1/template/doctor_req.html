@@ -1,0 +1,55 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+ <div class="main-content">
+    <div class="container mt-3">
+      <h2>Doctor Request</h2><hr>
+      <p>Data...</p>
+      <!-- At the top of adm_base.html or this template -->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr.</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Joining Date</th>
+            <th>Profile</th>
+            <th>Request</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in doc %}
+          {% if not i.is_approved %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.jod}}</td>
+            <td><img src="{{i.profile.url}}" height="50px" width="80px"></td>
+            <td>
+
+              <form method="post" action="{% url 'doctor_approve' i.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-success">Approve</button>
+              </form>
+            </td>
+            {% endif %}
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+ </div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+    <div class="container mt-3">
+      <h2>Doctor List</h2><hr>
+      <p>Data...</p>
+      {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr.</th>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Joining Date</th>
+            <th>Profile</th>
+            <th>Password</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in doc %}
+          {% if i.is_approved %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.User}}</td>
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.department}}</td>
+            <td>{{i.jod}}</td>
+            <td><img src="{{i.profile.url}}" height="50px" width="100px"></td>
+            <td>{{i.password}}</td>
+            <td>
+              <form method="post" action="{% url 'delete_doc' i.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm">🚮</button>
+              </form>
+              </td>
+          </tr>
+          {% endif %}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'patient_base.html' %}
+{% load static %}
+{% block content %}
+        <!-- Main Content -->
+            {{updatePat_id}}
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+            <div class="content">
+                <p>This is the main content area. You can add charts, tables, or other elements here.</p>
+            </div>
+
+            <br>
+        <div class="container mt-3">
+  <h4>Patients Approved Appointment</h4><hr>
+
+
+
+  <table class="table table-bordered">
+    <thead>
+
+      <tr>
+
+        <th>Patient Name</th>
+        <th>Contact</th>
+        <th>Doctor and Department</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Appointment date</th>
+        <th>Purpose</th>
+        <th>Doctor</th>
+        <th>Approved</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+          {% for i in appoint %}
+             {% if i.is_approved %}
+
+
+
+
+                    <tr>
+
+                      <td>{{i.patient_name}}</td>
+                      <td>{{i.contact}}</td>
+                      <td>{{i.doctor_department}}</td>
+                      <td>{{i.dob}}</td>
+                      <td>{{i.address}}</td>
+                      <td>{{i.appoint_date}}</td>
+                      <td>{{i.purpose}}</td>
+                      <td>{{i.doctor}}</td>
+                      <td>
+                          <button class="btn btn-sm btn-success">Approved</button>
+                      </td>
+                    </tr>
+
+             {% endif %}
+
+
+          {% endfor %}
+
+
+
+
+
+
+
+    </tbody>
+  </table>
+</div>
+
+
+
+
+{% endblock %}
+

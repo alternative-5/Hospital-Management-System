@@ -1,0 +1,150 @@
+@media (max-width: 768px) {
+.login-dark {
+position: relative;
+top: 5%;
+left: 0;
+right: 0;
+max-width: 90%;
+height: auto;
+padding: 20px;
+margin: 0 auto;
+}
+
+.navbar-brand h5 {
+padding: 6px;
+font-size: 0.9rem;
+}
+
+.login-dark .form-group {
+margin-bottom: 8px;
+}
+
+.login-dark .form-control {
+padding: 10px;
+}
+
+/* Adjust illustration size for mobile */
+.login-dark .illustration i {
+font-size: 40px;
+}
+
+/* Make form elements stack properly */
+.form-group {
+width: 100%;
+margin-left: 0;
+margin-right: 0;
+}
+}
+
+/* General Page Styling */
+
+/* General Page Styling */
+body {
+    background-color: #e0f7fa; /* Light blue background */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: white !important; /* White background for navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.navbar-brand h5 {
+    color: white; /* Dark text color for the brand */
+    margin: 0;
+    background-color:#0f61ef;
+    padding:10px;
+    border-radius:6px;
+}
+.navbar-brand h5:hover{
+color:blue;
+border-color:white;
+}
+
+.navbar-toggler {
+    border-color: #333; /* Dark color for the toggler */
+}
+
+.navbar-toggler-icon {
+    background-color: #333; /* Dark color for the toggler icon */
+}
+
+.navbar .btn-outline-success,
+.navbar .btn-outline-danger {
+    border-color: #333; /* Dark border color for buttons */
+    color: #333; /* Dark text color for buttons */
+}
+
+.navbar .btn-outline-success:hover,
+.navbar .btn-outline-danger:hover {
+    background-color: #333; /* Dark background on hover */
+    color: white; /* White text on hover */
+}
+
+/* Form Styling */
+.login-dark {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    height:1370px;
+    max-width: 400px;
+    margin: 0 auto; /* Center the form */
+    position: absolute;
+    top: 18%;
+    left: 36%;
+    text-align: center;
+    justify-content:center;
+}
+
+.login-dark h1 {
+    color: #333; /* Dark text color for the heading */
+    margin-bottom: 20px;
+}
+
+.login-dark .illustration {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-dark .illustration i {
+    font-size: 50px;
+    color: #333; /* Dark color for the icon */
+}
+
+.login-dark .form-group{
+    background-color: #f1f1f1; /* Light gray background for inputs */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.login-dark .form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a subtle focus effect */
+}
+
+.login-dark .form-group button {
+    background-color: #0f61ef; /* Dark background for the button */
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    color: white; /* White text for the button */
+    cursor: pointer;
+}
+
+.login-dark .form-group button:hover {
+    background-color: #555; /* Slightly lighter background on hover */
+}
+.login-dark label{
+justify-content:left;
+margin-left:5px;
+}
+.login-dark hr{
+color:black;
+}

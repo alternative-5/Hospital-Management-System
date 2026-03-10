@@ -1,0 +1,110 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+    <div class="container mt-3">
+      <h4>Patients Appointment</h4><hr>
+
+    <br>
+      <h5>Pending Appointments</h5>
+      <hr>
+
+      <table class="table table-bordered">
+        <thead>
+
+          <tr>
+            <th>Patient Name</th>
+            <th>Contact</th>
+            <th>Doctor and Department</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+            <th>Appointment date</th>
+            <th>Purpose</th>
+            <th>Doctor</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+
+
+              {% for i in appoint %}
+                {% if not i.is_approved %}
+
+
+                    <tr>
+                      <td>{{i.patient_name}}</td>
+                      <td>{{i.contact}}</td>
+                      <td>{{i.doctor_department}}</td>
+                      <td>{{i.dob}}</td>
+                      <td>{{i.address}}</td>
+                      <td>{{i.appoint_date}}</td>
+                      <td>{{i.purpose}}</td>
+                      <td>{{i.doctor}}</td>
+                      <td style="color:#ff8c00;">
+                        Pending
+                      </td>
+                    </tr>
+
+                {% endif %}
+
+
+              {% endfor %}
+
+     </tbody>
+      </table>
+
+    <br>
+
+
+
+            <h5>Approved Appointments</h5>
+              <hr>
+
+              <table class="table table-bordered">
+                <thead>
+
+                  <tr>
+                    <th>Patient Name</th>
+                    <th>Contact</th>
+                    <th>Doctor and Department</th>
+                    <th>Date of Birth</th>
+                    <th>Address</th>
+                    <th>Appointment date</th>
+                    <th>Purpose</th>
+                    <th>Doctor</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+
+                      {% for i in appoint %}
+                        {% if i.is_approved %}
+
+
+                            <tr>
+                              <td>{{i.patient_name}}</td>
+                              <td>{{i.contact}}</td>
+                              <td>{{i.doctor_department}}</td>
+                              <td>{{i.dob}}</td>
+                              <td>{{i.address}}</td>
+                              <td>{{i.appoint_date}}</td>
+                              <td>{{i.purpose}}</td>
+                              <td>{{i.doctor}}</td>
+                              <td style="color:green;">
+                                Approved
+                              </td>
+                            </tr>
+
+                        {% endif %}
+
+
+                      {% endfor %}
+
+    </tbody>
+      </table>
+    </div>
+</div>
+
+
+{% endblock %}

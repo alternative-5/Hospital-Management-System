@@ -1,0 +1,41 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+  <div class="container mt-3">
+    <h2>Patients List</h2><hr>
+    <p>Data...</p>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Username</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Date of Birth</th>
+          <th>Contact</th>
+          <th>Aadhar No</th>
+          <th>Address</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in pat %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.User}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.dob}}</td>
+          <td>{{i.contact}}</td>
+          <td>{{i.aadhar_no}}</td>
+          <td>{{i.address}}</td>
+          <td>{{i.password}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+<main>
+    <div class="login-dark form-inline py-0 mx-4 my-4 pl-4 pr-4" style="height:1550px;">
+    <form method="post" id="registrationForm" onsubmit="return validatePasswords()" enctype="multipart/form-data">
+        {% csrf_token %}
+       <h1 class="text-center">Registration</h1>
+       <hr>
+        <label>Username</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="username" placeholder="Username"></div>
+        <hr>
+        <label>Firstname</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="firstname" placeholder="First Name"></div>
+        <hr>
+        <label>Lastname</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="lastname" placeholder="Last Name"></div>
+        <hr>
+        <label>Email</label>
+       <div class="form-group"><input class="form-control mb-2" type="email" name="email" placeholder="Email"></div>
+        <hr>
+        <label>Date of Birth</label>
+       <div class="form-group"><input class="form-control mb-2" type="date" name="dob" placeholder="Date of Birth"></div>
+        <hr>
+        <label>Contact</label>
+       <div class="form-group"><input class="form-control mb-2" type="number" name="contact" placeholder="phone no"></div>
+       <hr>
+        <label>Aadhar no</label>
+       <div class="form-group"><input class="form-control mb-2" type="number" name="aadhar_no" placeholder="Aadhar no"></div>
+       <hr>
+         <label>Upload Profile</label>
+       <div class="form-group"><input class="form-control mb-2" type="file" name="profile" placeholder="Upload Profile"></div>
+        <hr>
+        <label>Address</label>
+       <div class="form-group"><input class="form-control mb-2" type="text" name="address" placeholder="Address.."></div>
+       <hr>
+        <label>Password</label>
+       <div class="form-group"><input class="form-control mb-2" type="password" id="password1" name="password" placeholder="Password" required></div>
+        <hr>
+        <label>Confirm Password</label>
+       <div class="form-group"><input class="form-control mb-2" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"></div>
+        <span id="errorMessage" class="error"></span>
+       <div class="form-group"><button class="btn btn-primary btn-block mt-2 ml-2" type="submit">Register</button></div>
+        <a href="{% url 'patient_login' %}">If You're already register then login here</a>
+     </form>
+    </div>
+    <script>
+        function validatePasswords() {
+            const password1 = document.getElementById('password1').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (password2 !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+                return false;
+            } else {
+                errorMessage.textContent = "";
+                return true;
+            }
+        }
+    </script>
+</main>
+{% endblock %}

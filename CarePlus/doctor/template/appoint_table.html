@@ -1,0 +1,66 @@
+{% extends 'doc_base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-3">
+  <h4>Patients Appointment</h4><hr>
+
+
+
+  <table class="table table-bordered">
+    <thead>
+
+      <tr>
+        <th>Sr.</th>
+        <th>Patient Name</th>
+        <th>Contact</th>
+        <th>Doctor and Department</th>
+        <th>Date of Birth</th>
+        <th>Address</th>
+        <th>Appointment date</th>
+        <th>Purpose</th>
+        <th>Doctor</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+          {% for i in appoint %}
+            {% if not i.is_approved %}
+
+
+                <tr>
+                  <td>{{count}}</td>
+                  <td>{{i.patient_name}}</td>
+                  <td>{{i.contact}}</td>
+                  <td>{{i.doctor_department}}</td>
+                  <td>{{i.dob}}</td>
+                  <td>{{i.address}}</td>
+                  <td>{{i.appoint_date}}</td>
+                  <td>{{i.purpose}}</td>
+                  <td>{{i.doctor}}</td>
+                  <td>
+                    <form method="post" style="margin:20px;" action="{% url 'appoint_approve' i.id %}">
+                      {% csrf_token %}
+
+                      <button type="submit" class="btn btn-sm btn-success">Approve</button>
+                    </form>
+                  </td>
+                </tr>
+
+            {% endif %}
+
+
+          {% endfor %}
+
+
+
+
+
+
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

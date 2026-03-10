@@ -1,0 +1,44 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+ <div class="main-content">
+
+      <div class="container mt-3" >
+        <h2>Emergency Request</h2><hr>
+        <p>Data...</p>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+
+                <th>Patient Name</th>
+                <th>Contact</th>
+                <th>Date</th>
+                <th>Email</th>
+                <th>Message</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {% for i in emer %}
+                <td>{{i.patient_name}}</td>
+                <td>{{i.contact}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.message}}</td>
+                {% endfor %}
+
+
+                </tr>
+
+            </tbody>
+
+            </table>
+
+      </div>
+ </div>
+
+
+{% endblock %}

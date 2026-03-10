@@ -1,0 +1,246 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+<div class="main-content">
+  <div class="container mt-3">
+    <h4>Departments</h4><hr>
+
+
+    <h5>Emergency Department (ED) (A-1)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in emer %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+    <h5>Cardiology (A-2)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in cardio %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+    <h5>Neurology (A-3)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in neuro %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+
+    <h5>Orthopedics (B-1)</h5><hr>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in ortho %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <h5>Radiology (B-2)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in radio %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+    <h5>General Surgery (B-3)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in gs %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+    <h5>Dermatology (C-1)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in derma %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+    <h5>ENT (Otorhinolaryngology) (C-2)</h5><hr>
+     <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sr.</th>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Email</th>
+          <th>Call</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in ent %}
+        {% if i.is_approved %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{i.firstname}}</td>
+          <td>{{i.lastname}}</td>
+          <td>{{i.email}}</td>
+          <td>{{i.contact}} - 📞</td>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+
+      </tbody>
+    </table>
+
+    <BR>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,129 @@
+{% extends 'adm_base.html' %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Patient Invoice Form</title>
+    <style>
+         .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+         }
+
+         h4 {
+            color: #333;
+            margin-bottom: 10px;
+         }
+
+         .invoice {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+         }
+
+         .patient-details {
+            width: 40%; /* Keeps Patient Details on the left */
+         }
+
+         .other-details {
+            width: 60%; /* Moves other details to the right */
+         }
+
+         h6 {
+            color: #007bff;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+         }
+
+         p {
+            color: #555;
+            font-size: 16px;
+            margin: 5px 0;
+         }
+
+         p strong {
+            color: #333;
+         }
+
+         hr {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 20px 0;
+         }
+
+         .submit-btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            width:50%;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+         }
+
+         .submit-btn:hover {
+            background-color: #0056b3;
+         }
+
+         button {
+            margin-top: 15px;
+         }
+
+         .center {
+            text-align: center;
+         }
+    </style>
+</head>
+<body>
+<div class="main-content">
+<div class="container">
+    <center><h4>Patient Invoice</h4></center>
+    <hr><br>
+    <div class="invoice">
+        <!-- Patient Details Section -->
+        <div class="patient-details">
+            <h6>Patient Details</h6>
+            {% for lt in lr %}
+            <p><strong>Name:</strong> {{ lt.patient_name }}</p>
+            <p><strong>Invoice ID:</strong> {{ lt.patient_id }}</p>
+
+        </div>
+
+        <!-- Other Details Section -->
+        <div class="other-details">
+
+            <h6>Invoice Details</h6>
+            <p><strong>Admission Date:</strong> {{ lt.admission_date }}</p>
+            <p><strong>Discharge Date:</strong> {{ lt.discharge_date }}</p><br>
+            <h6>Doctor Details</h6>
+            <p><strong>Doctor Name:</strong> {{ lt.doctor_name }}</p><br>
+            <h6>Treatment Details</h6>
+            <p>{{ lt.treatment_details }}</p><br>
+            <h6>Billing Details</h6>
+            <p><strong>Total Amount:</strong> ₹{{ lt.amount }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <hr>
+    <center><a href="{% url 'download_pdf' %}" class="btn btn-secondary">Download PDF</a>
+
+    <a href="{% url 'view_pdf' %}" class="btn btn-secondary">View PDF</a></center>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}
